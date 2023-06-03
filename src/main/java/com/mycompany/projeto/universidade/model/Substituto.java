@@ -11,6 +11,10 @@ package com.mycompany.projeto.universidade.model;
 public class Substituto extends Docente {
     public int cargaHoraria; //12 ou 24 horas.
 
+    public Substituto(String codigo, String nome, double salario, String nivel) {
+        super(codigo, nome, salario, nivel);
+    }
+
     @Override
     public double calcularSalario() {
         return salario;

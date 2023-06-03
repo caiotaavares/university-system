@@ -10,7 +10,11 @@ package com.mycompany.projeto.universidade.model;
  */
 public abstract class Docente extends Funcionario {
     public String titulacao; //Graduação; Mestrado; Doutorado; Livre-Docente; Titular.
-    
+
+    public Docente(String codigo, String nome, double salario, String nivel) {
+        super(codigo, nome, salario, nivel);
+    }
+
     @Override
     public abstract double calcularSalario();
 }

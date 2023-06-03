@@ -11,17 +11,17 @@ package com.mycompany.projeto.universidade.model;
 public class Departamento {
     public String codigo;
     public String nome;
-    public Funcionario Funcionarios[];
+    public Funcionario[] funcionarios;
 
     public Departamento(String codigo, String nome, Funcionario[] Funcionarios) {
         this.codigo = codigo;
         this.nome = nome;
-        this.Funcionarios = Funcionarios;
+        this.funcionarios = Funcionarios;
     }
 
     @Override
     public String toString() {
-        return "Departamento{" + "codigo=" + codigo + ", nome=" + nome + ", Funcionarios=" + Funcionarios + '}';
+        return "Departamento{" + "codigo=" + codigo + ", nome=" + nome + ", Funcionarios=" + funcionarios + '}';
     }
 
     public String getCodigo() {
@@ -41,11 +41,11 @@ public class Departamento {
     }
 
     public Funcionario[] getFuncionarios() {
-        return Funcionarios;
+        return funcionarios;
     }
 
     public void setFuncionarios(Funcionario[] Funcionarios) {
-        this.Funcionarios = Funcionarios;
+        this.funcionarios = Funcionarios;
     }
     
 }

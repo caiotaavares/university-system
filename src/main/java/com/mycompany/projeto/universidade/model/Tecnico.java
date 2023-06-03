@@ -10,7 +10,12 @@ package com.mycompany.projeto.universidade.model;
  */
 public class Tecnico extends Funcionario {
     public String funcao; //Assessor; Laboratório; Secretário.
-    
+
+    public Tecnico(String codigo, String nome, double salario, String nivel, String funcao) {
+        super(codigo, nome, salario, nivel);
+        this.funcao = funcao;
+    }
+
     @Override
     public double calcularSalario() {
         return (salario * 1.1);
@@ -23,10 +28,6 @@ public class Tecnico extends Funcionario {
         sb.append("funcao=").append(funcao);
         sb.append('}');
         return sb.toString();
-    }
-
-    public Tecnico(String funcao) {
-        this.funcao = funcao;
     }
 
     public String getFuncao() {
