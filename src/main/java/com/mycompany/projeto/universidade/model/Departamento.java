@@ -4,6 +4,8 @@
  */
 package com.mycompany.projeto.universidade.model;
 
+import java.util.Arrays;
+
 /**
  *
  * @author caiotavares
@@ -21,7 +23,7 @@ public class Departamento {
 
     @Override
     public String toString() {
-        return "Departamento{" + "codigo=" + codigo + ", nome=" + nome + ", Funcionarios=" + funcionarios + '}';
+        return "Departamento{" + "codigo=" + codigo + ", nome=" + nome + ", Funcionarios=" + Arrays.toString(funcionarios) + '}';
     }
 
     public String getCodigo() {
