@@ -4,6 +4,9 @@
  */
 package com.mycompany.projeto.universidade.model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 /**
@@ -19,6 +22,82 @@ public class Departamento {
         this.codigo = codigo;
         this.nome = nome;
         this.funcionarios = Funcionarios;
+    }
+
+    public void adicionarFuncionario(Funcionario funcionario) {
+        if (funcionarios == null) {
+            funcionarios = new Funcionario[1];
+            funcionarios[0] = funcionario;
+        } else {
+            Funcionario[] novoArray = new Funcionario[funcionarios.length + 1];
+            System.arraycopy(funcionarios, 0, novoArray, 0, funcionarios.length);
+            novoArray[funcionarios.length] = funcionario;
+            funcionarios = novoArray;
+        }
+
+        String codigoFuncionario = funcionario.getCodigo();
+        String nomeArquivo = "Funcionarios.txt";
+
+        gravarFuncionario(codigoFuncionario, nomeArquivo);
+    }
+
+    public void removerFuncionario(String codigoFuncionario) {
+        if (funcionarios == null || funcionarios.length == 0) {
+            return;
+        }
+
+        int indice = -1;
+        for (int i = 0; i < funcionarios.length; i++) {
+            if (funcionarios[i].getCodigo().equals(codigoFuncionario)) {
+                indice = i;
+                break;
+            }
+        }
+
+        if (indice == -1) {
+            return;
+        }
+
+        Funcionario funcionarioRemovido = funcionarios[indice];
+
+        Funcionario[] novoArray = new Funcionario[funcionarios.length - 1];
+
+        if (indice > 0) {
+            System.arraycopy(funcionarios, 0, novoArray, 0, indice);
+        }
+
+        if (indice < funcionarios.length - 1) {
+            System.arraycopy(funcionarios, indice + 1, novoArray, indice, funcionarios.length - indice - 1);
+        }
+
+        funcionarios = novoArray;
+
+        // Atualiza o arquivo removendo o funcionário
+        atualizarArquivoRemocaoFuncionario(funcionarioRemovido);
+    }
+
+    private void atualizarArquivoRemocaoFuncionario(Funcionario funcionarioRemovido) {
+        String nomeArquivo = "Funcionarios.txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo, true))) {
+            writer.println("Funcionário removido:");
+            writer.println("Nome: " + funcionarioRemovido.getNome());
+            writer.println("Código: " + funcionarioRemovido.getCodigo());
+            writer.println();
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void gravarFuncionario(String codigoFuncionario, String nomeArquivo) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo, true))) {
+            writer.println("Departamento: " + this.nome);
+            writer.println("Código do Funcionário: " + codigoFuncionario);
+            writer.println();
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -49,5 +128,4 @@ public class Departamento {
     public void setFuncionarios(Funcionario[] Funcionarios) {
         this.funcionarios = Funcionarios;
     }
-    
 }

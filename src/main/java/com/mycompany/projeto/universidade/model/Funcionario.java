@@ -4,6 +4,8 @@
  */
 package com.mycompany.projeto.universidade.model;
 
+import static com.mycompany.projeto.universidade.Helper.*;
+
 /**
  *
  * @author caiotavares
