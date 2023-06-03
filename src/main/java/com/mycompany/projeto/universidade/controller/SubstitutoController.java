@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubstitutoController {
-    private List<Substituto> substitutos;
+    private final List<Substituto> substitutos;
 
     public SubstitutoController() {
         substitutos = new ArrayList<>();
