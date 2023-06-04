@@ -3,6 +3,9 @@ package com.mycompany.projeto.universidade.controller;
 import com.mycompany.projeto.universidade.model.Departamento;
 import com.mycompany.projeto.universidade.model.Funcionario;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,20 +17,27 @@ public class UniversidadeController {
     }
 
     public void adicionarDepartamento(Departamento departamento) {
-        departamentos.add(departamento);
+        String nomeArquivo = "db/Departamentos.txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo, true))) {
+            writer.println(departamento.toString());
+            writer.println();
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void adicionarFuncionario(String nomeDepartamento, Funcionario funcionario) {
+    public void adicionarFuncionario(String nomeDepartamento, Funcionario funcionario, String nomeArquivo) {
         Departamento departamento = buscarDepartamentoPorNome(nomeDepartamento);
         if (departamento != null) {
-            departamento.adicionarFuncionario(funcionario);
+            departamento.adicionarFuncionario(funcionario, nomeArquivo);
         }
     }
 
     public void removerFuncionario(String nomeDepartamento, String codigoFuncionario) {
         Departamento departamento = buscarDepartamentoPorNome(nomeDepartamento);
         if (departamento != null) {
-            departamento.removerFuncionario(codigoFuncionario);
+//            departamento.removerFuncionario(codigoFuncionario);
         }
     }
 

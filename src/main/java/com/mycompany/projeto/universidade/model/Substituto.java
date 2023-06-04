@@ -16,6 +16,16 @@ public class Substituto extends Docente {
     }
 
     @Override
+    public String toString() {
+        return cargaHoraria + "," +
+                titulacao + "," +
+                codigo + "," +
+                nome + "," +
+                salario + "," +
+                nivel + ",";
+    }
+
+    @Override
     public double calcularSalario() {
         return salario;
     }

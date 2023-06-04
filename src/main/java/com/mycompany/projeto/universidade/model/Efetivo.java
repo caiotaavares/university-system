@@ -21,6 +21,16 @@ public class Efetivo extends Docente {
         this.area = area;
     }
 
+    @Override
+    public String toString() {
+        return  area + "," +
+                titulacao + "," +
+                codigo + "," +
+                nome + "," +
+                salario + "," +
+                nivel + ",";
+    }
+
     public String getArea() {
         return area;
     }

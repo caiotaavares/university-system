@@ -4,9 +4,8 @@
 
 package com.mycompany.projeto.universidade;
 
-import com.mycompany.projeto.universidade.model.Departamento;
-import com.mycompany.projeto.universidade.model.Funcionario;
-import com.mycompany.projeto.universidade.model.Tecnico;
+import com.mycompany.projeto.universidade.controller.UniversidadeController;
+import com.mycompany.projeto.universidade.model.*;
 
 import javax.swing.JFrame;
 
@@ -34,10 +33,15 @@ public class ProjetoUniversidade {
                 "Departamento de Ciência da Computação",
                 null
         );
-        Funcionario tecnico = new Tecnico(gerarHash(), "caio", 123456, "D1", "aaaa");
-        Funcionario tecnico1 = new Tecnico( gerarHash(), "caio", 123456, "D1", "aaaa");
-        departamento0.adicionarFuncionario(tecnico);
-        departamento0.adicionarFuncionario(tecnico1);
-//        departamento0.removerFuncionario(tecnico1.getCodigo());
+        UniversidadeController controller = new UniversidadeController();
+        controller.adicionarDepartamento(departamento0);
+
+        Funcionario tecnico = new Tecnico("a", "caio", 4000, "D1", "O cara");
+        Funcionario tecnico1 = new Tecnico( "b", "Tavares", 10000, "D3", "O homi");
+        departamento0.adicionarFuncionario(tecnico, "Tecnico.txt");
+        departamento0.adicionarFuncionario(tecnico1, "Tecnico.txt");
+
+        Funcionario efetivo = new Efetivo("c", "Gabriel", 60000, "LVL1", "CC");
+        departamento0.adicionarFuncionario(efetivo, "Efetivos.txt");
     }
 }

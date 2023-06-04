@@ -4,10 +4,11 @@
  */
 package com.mycompany.projeto.universidade.model;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Departamento {
         this.funcionarios = Funcionarios;
     }
 
-    public void adicionarFuncionario(Funcionario funcionario) {
+    public void adicionarFuncionario(Funcionario funcionario, String nomeArquivo) {
         if (funcionarios == null) {
             funcionarios = new Funcionario[1];
             funcionarios[0] = funcionario;
@@ -35,74 +36,86 @@ public class Departamento {
             funcionarios = novoArray;
         }
 
-        String codigoFuncionario = funcionario.getCodigo();
-        String nomeArquivo = "Funcionarios.txt";
-
-        gravarFuncionario(codigoFuncionario, nomeArquivo);
+        gravarFuncionario(funcionario, nomeArquivo);
     }
 
-    public void removerFuncionario(String codigoFuncionario) {
-        if (funcionarios == null || funcionarios.length == 0) {
-            return;
-        }
+//    public void removerFuncionario(String codigoFuncionario) {
+//        if (funcionarios == null || funcionarios.length == 0) {
+//            return;
+//        }
+//
+//        int indice = -1;
+//        for (int i = 0; i < funcionarios.length; i++) {
+//            if (funcionarios[i].getCodigo().equals(codigoFuncionario)) {
+//                indice = i;
+//                break;
+//            }
+//        }
+//
+//        if (indice == -1) {
+//            return;
+//        }
+//
+//        Funcionario funcionarioRemovido = funcionarios[indice];
+//
+//        Funcionario[] novoArray = new Funcionario[funcionarios.length - 1];
+//
+//        if (indice > 0) {
+//            System.arraycopy(funcionarios, 0, novoArray, 0, indice);
+//        }
+//
+//        if (indice < funcionarios.length - 1) {
+//            System.arraycopy(funcionarios, indice + 1, novoArray, indice, funcionarios.length - indice - 1);
+//        }
+//
+//        funcionarios = novoArray;
+//
+////        atualizarArquivoRemocaoFuncionario(funcionarioRemovido);
+//    }
 
-        int indice = -1;
-        for (int i = 0; i < funcionarios.length; i++) {
-            if (funcionarios[i].getCodigo().equals(codigoFuncionario)) {
-                indice = i;
-                break;
-            }
-        }
+//    public void getFuncionarios(String nomeArquivo) {
+//        try (Scanner scanner = new Scanner(new File(nomeArquivo))) {
+//            List<Funcionario> listaFuncionarios = new ArrayList<>();
+//
+//            while (scanner.hasNextLine()) {
+//                String linha = scanner.nextLine();
+//                if (linha.isEmpty()) {
+//                    continue;
+//                }
+//
+//                // Cria um objeto Funcionario com base na linha lida
+//                Funcionario funcionario = criarFuncionarioAPartirDaLinha(linha);
+//                listaFuncionarios.add(funcionario);
+//            }
+//
+//            // Converte a lista de funcionários para um array e atribui ao array funcionarios do Departamento
+//            funcionarios = listaFuncionarios.toArray(new Funcionario[0]);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-        if (indice == -1) {
-            return;
-        }
-
-        Funcionario funcionarioRemovido = funcionarios[indice];
-
-        Funcionario[] novoArray = new Funcionario[funcionarios.length - 1];
-
-        if (indice > 0) {
-            System.arraycopy(funcionarios, 0, novoArray, 0, indice);
-        }
-
-        if (indice < funcionarios.length - 1) {
-            System.arraycopy(funcionarios, indice + 1, novoArray, indice, funcionarios.length - indice - 1);
-        }
-
-        funcionarios = novoArray;
-
-        // Atualiza o arquivo removendo o funcionário
-        atualizarArquivoRemocaoFuncionario(funcionarioRemovido);
-    }
-
-    private void atualizarArquivoRemocaoFuncionario(Funcionario funcionarioRemovido) {
-        String nomeArquivo = "Funcionarios.txt";
-        try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo, true))) {
-            writer.println("Funcionário removido:");
-            writer.println("Nome: " + funcionarioRemovido.getNome());
-            writer.println("Código: " + funcionarioRemovido.getCodigo());
+    public void gravarFuncionario(Funcionario funcionario, String nomeArquivo) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter( "db/" + nomeArquivo, true))) {
+            writer.println(this.getCodigo() + "," + funcionario.toString());
             writer.println();
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
-    public void gravarFuncionario(String codigoFuncionario, String nomeArquivo) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo, true))) {
-            writer.println("Departamento: " + this.nome);
-            writer.println("Código do Funcionário: " + codigoFuncionario);
-            writer.println();
-            writer.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
+//    @Override
+//    public String toString() {
+//        return codigo + "," +
+//                nome + "," +
+//                Arrays.toString(funcionarios) + '}';
+//    }
 
     @Override
     public String toString() {
-        return "Departamento{" + "codigo=" + codigo + ", nome=" + nome + ", Funcionarios=" + Arrays.toString(funcionarios) + '}';
+        return codigo + "," +
+                nome + ",";
     }
 
     public String getCodigo() {

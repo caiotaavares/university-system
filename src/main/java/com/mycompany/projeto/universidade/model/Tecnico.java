@@ -23,11 +23,11 @@ public class Tecnico extends Funcionario {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Tecnico{");
-        sb.append("funcao=").append(funcao);
-        sb.append('}');
-        return sb.toString();
+        return  funcao + "," +
+                codigo + "," +
+                nome + "," +
+                salario + "," +
+                nivel + ",";
     }
 
     public String getFuncao() {
