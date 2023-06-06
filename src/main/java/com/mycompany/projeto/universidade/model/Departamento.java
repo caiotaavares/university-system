@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author caiotavares
  */
-public class Departamento {
+public class Departamento implements Serializable {
     public String codigo;
     public String nome;
     public Funcionario[] funcionarios;
@@ -96,13 +96,39 @@ public class Departamento {
 //    }
 
     public void gravarFuncionario(Funcionario funcionario, String nomeArquivo) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter( "db/" + nomeArquivo, true))) {
-            writer.println(this.getCodigo() + "," + funcionario.toString());
-            writer.println();
-            writer.flush();
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("db/" + nomeArquivo, true))) {
+            outputStream.writeObject(funcionario);
+            outputStream.writeObject(null);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Funcionario[] lerFuncionarios(String nomeArquivo) {
+        Funcionario[] funcionarios = null;
+
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("db/" + nomeArquivo))) {
+            ArrayList<Funcionario> funcionariosTemp = new ArrayList<>();
+
+            while (true) {
+                try {
+                    Funcionario funcionario = (Funcionario) inputStream.readObject();
+                    if (funcionario != null) {
+                        funcionariosTemp.add(funcionario);
+                    }
+                } catch (EOFException e) {
+                    break;
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            funcionarios = funcionariosTemp.toArray(new Funcionario[0]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return funcionarios;
     }
 
 //    @Override

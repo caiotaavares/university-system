@@ -4,11 +4,13 @@
  */
 package com.mycompany.projeto.universidade.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author caiotavares
  */
-public class Tecnico extends Funcionario {
+public class Tecnico extends Funcionario implements Serializable {
     public String funcao; //Assessor; Laboratório; Secretário.
 
     public Tecnico(String codigo, String nome, double salario, String nivel, String funcao) {

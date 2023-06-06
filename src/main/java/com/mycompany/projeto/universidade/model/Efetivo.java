@@ -4,11 +4,13 @@
  */
 package com.mycompany.projeto.universidade.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author caiotavares
  */
-public class Efetivo extends Docente {
+public class Efetivo extends Docente implements Serializable {
     public String area; //Biológicas; Exatas; Humanas; Saúde.
     
     @Override

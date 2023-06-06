@@ -7,7 +7,9 @@ package com.mycompany.projeto.universidade;
 import com.mycompany.projeto.universidade.controller.UniversidadeController;
 import com.mycompany.projeto.universidade.model.*;
 
-import javax.swing.JFrame;
+import javax.swing.*;
+
+import java.util.Arrays;
 
 import static com.mycompany.projeto.universidade.Helper.gerarHash;
 
@@ -19,13 +21,16 @@ public class ProjetoUniversidade {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        
-        Gui gui = new Gui();
-        JFrame frame = new JFrame("UNESP");
-        
-        frame.add(gui);
-        frame.pack();
-        frame.setVisible(true);
+
+//        Gui gui = new Gui();
+//        JPanel panel = new JPanel();
+//        panel.add(gui);
+//
+//        JFrame frame = new JFrame("UNESP");
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.getContentPane().add(panel);
+//        frame.pack();
+//        frame.setVisible(true);
 
         // Testes
         Departamento departamento0 = new Departamento(
@@ -43,5 +48,7 @@ public class ProjetoUniversidade {
 
         Funcionario efetivo = new Efetivo("c", "Gabriel", 60000, "LVL1", "CC");
         departamento0.adicionarFuncionario(efetivo, "Efetivos.txt");
+
+        System.out.println(Arrays.toString(departamento0.lerFuncionarios("Efetivos.txt")));
     }
 }
