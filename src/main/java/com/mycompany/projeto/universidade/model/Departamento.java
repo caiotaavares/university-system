@@ -39,62 +39,6 @@ public class Departamento implements Serializable {
         gravarFuncionario(funcionario, nomeArquivo);
     }
 
-//    public void removerFuncionario(String codigoFuncionario) {
-//        if (funcionarios == null || funcionarios.length == 0) {
-//            return;
-//        }
-//
-//        int indice = -1;
-//        for (int i = 0; i < funcionarios.length; i++) {
-//            if (funcionarios[i].getCodigo().equals(codigoFuncionario)) {
-//                indice = i;
-//                break;
-//            }
-//        }
-//
-//        if (indice == -1) {
-//            return;
-//        }
-//
-//        Funcionario funcionarioRemovido = funcionarios[indice];
-//
-//        Funcionario[] novoArray = new Funcionario[funcionarios.length - 1];
-//
-//        if (indice > 0) {
-//            System.arraycopy(funcionarios, 0, novoArray, 0, indice);
-//        }
-//
-//        if (indice < funcionarios.length - 1) {
-//            System.arraycopy(funcionarios, indice + 1, novoArray, indice, funcionarios.length - indice - 1);
-//        }
-//
-//        funcionarios = novoArray;
-//
-////        atualizarArquivoRemocaoFuncionario(funcionarioRemovido);
-//    }
-
-//    public void getFuncionarios(String nomeArquivo) {
-//        try (Scanner scanner = new Scanner(new File(nomeArquivo))) {
-//            List<Funcionario> listaFuncionarios = new ArrayList<>();
-//
-//            while (scanner.hasNextLine()) {
-//                String linha = scanner.nextLine();
-//                if (linha.isEmpty()) {
-//                    continue;
-//                }
-//
-//                // Cria um objeto Funcionario com base na linha lida
-//                Funcionario funcionario = criarFuncionarioAPartirDaLinha(linha);
-//                listaFuncionarios.add(funcionario);
-//            }
-//
-//            // Converte a lista de funcionários para um array e atribui ao array funcionarios do Departamento
-//            funcionarios = listaFuncionarios.toArray(new Funcionario[0]);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     public void gravarFuncionario(Funcionario funcionario, String nomeArquivo) {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("db/" + nomeArquivo, true))) {
             outputStream.writeObject(funcionario);
