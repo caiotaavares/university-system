@@ -27,6 +27,12 @@ public abstract class Funcionario implements Serializable {
         this.nivel = nivel;
         ID++;
     }
+    
+    @Override
+    public String toString() {
+        return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\"%n}",
+                             getCodigoFunc(), getNome(), getSalario(), getNivel());
+    }
 
     public Integer getCodigoFunc() {
         return codigoFunc;

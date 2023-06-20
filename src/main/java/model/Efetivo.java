@@ -23,15 +23,11 @@ public class Efetivo extends Docente implements Serializable {
     public double calcularSalario() {
         return salario;
     }
-
+    
     @Override
     public String toString() {
-        return "[" + area + "," +
-                titulacao + "," +
-                codigoFunc + "," +
-                nome + "," +
-                salario + "," +
-                nivel + "]";
+        return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\",%n  \"titulacao\": \"%s\",%n  \"area\": \"%s\"%n}",
+                             getCodigoFunc(), getNome(), getSalario(), getNivel(), getTitulacao(), getArea());
     }
 
     public String getArea() {

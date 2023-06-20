@@ -15,6 +15,12 @@ public abstract class Docente extends Funcionario {
         super(nome, salario, nivel);
         this.titulacao = titulacao;
     }
+    
+    @Override
+    public String toString() {
+        return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\",%n  \"titulacao\": \"%s\"%n}",
+                             getCodigoFunc(), getNome(), getSalario(), getNivel(), getTitulacao());
+    }
 
     @Override
     public abstract double calcularSalario();

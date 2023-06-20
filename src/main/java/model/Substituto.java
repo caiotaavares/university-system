@@ -15,15 +15,11 @@ public class Substituto extends Docente {
         super(nome, salario, nivel, titulacao);
         this.cargaHoraria = cargaHoraria;
     }
-
+    
     @Override
     public String toString() {
-        return "[" + cargaHoraria + "," +
-                titulacao + "," +
-                codigoFunc + "," +
-                nome + "," +
-                salario + "," +
-                nivel + "]";
+        return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\",%n  \"titulacao\": \"%s\",%n  \"cargaHoraria\": %d%n}",
+                             getCodigoFunc(), getNome(), getSalario(), getNivel(), getTitulacao(), getCargaHoraria());
     }
 
     @Override

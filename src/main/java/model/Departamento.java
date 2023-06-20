@@ -31,7 +31,31 @@ public class Departamento implements Serializable {
 
     @Override
     public String toString() {
-        return "Departamento{" + "codigo=" + codigo + ", nome=" + nome + ", funcionarios=" + funcionarios + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Departamento{")
+          .append("codigo=").append(codigo)
+          .append(", nome='").append(nome).append('\'')
+          .append(", funcionarios=[");
+
+        if (funcionarios != null && !funcionarios.isEmpty()) {
+            for (int i = 0; i < funcionarios.size(); i++) {
+                sb.append(funcionarios.get(i).toString());
+                if (i < funcionarios.size() - 1) {
+                    sb.append(", ");
+                }
+            }
+        }
+
+        sb.append("]}\n");
+        return sb.toString();
+    }
+    
+    public double getGastoTotalFuncionarios() {
+        double total = 0;
+        for (Funcionario funcionario : funcionarios) {
+            total += funcionario.getSalario();
+        }
+        return total;
     }
 
     public Integer getCodigo() {
