@@ -18,16 +18,16 @@ o gasto total com funcionário;
 - [X] 	Exibir Todos os Funcionários: emite um relatório geral com todos os
 	funcionários da universidade;
 	
-- [ ] 	Exibir Todos os Técnicos: emite um relatório geral com todos os
+- [x] 	Exibir Todos os Técnicos: emite um relatório geral com todos os
 	funcionários técnico da universidade;
 	
-- [ ] 	Exibir Todos os Docentes: emite um relatório geral com todos os
+- [X] 	Exibir Todos os Docentes: emite um relatório geral com todos os
 	funcionários docente da universidade;
 	
-- [ ] 	Exibir Todos os Docentes Efetivos: emite um relatório geral com todos
+- [X] 	Exibir Todos os Docentes Efetivos: emite um relatório geral com todos
 	os funcionários docente efetivos da universidade;
 	
-- [ ] 	Exibir Todos os Docentes Substitutos: emite um relatório geral com
+- [X] 	Exibir Todos os Docentes Substitutos: emite um relatório geral com
 	todos os funcionários docente substitutos da universidade;
 	
 - [ ] 	Exibir Informações de um Departamento: exibe todas as informações

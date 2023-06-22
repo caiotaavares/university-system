@@ -19,11 +19,13 @@ public abstract class Docente extends Funcionario {
     @Override
     public String toString() {
         return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\",%n  \"titulacao\": \"%s\"%n}",
-                             getCodigoFunc(), getNome(), getSalario(), getNivel(), getTitulacao());
+                             getCodigoFunc(), getNome(), calcularSalario(), getNivel(), getTitulacao());
     }
 
     @Override
     public abstract double calcularSalario();
+    
+    public abstract boolean isEfetivo();
 
     public String getTitulacao() {
         return titulacao;

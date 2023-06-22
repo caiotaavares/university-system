@@ -18,7 +18,7 @@ public abstract class Funcionario implements Serializable {
     public double salario;
     public String nivel;
 
-    abstract double calcularSalario();
+    public abstract double calcularSalario();
 
     public Funcionario(String nome, double salario, String nivel) {
         codigoFunc = ID;
@@ -31,7 +31,7 @@ public abstract class Funcionario implements Serializable {
     @Override
     public String toString() {
         return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\"%n}",
-                             getCodigoFunc(), getNome(), getSalario(), getNivel());
+                             getCodigoFunc(), getNome(), calcularSalario(), getNivel());
     }
 
     public Integer getCodigoFunc() {

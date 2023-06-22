@@ -53,7 +53,7 @@ public class Departamento implements Serializable {
     public double getGastoTotalFuncionarios() {
         double total = 0;
         for (Funcionario funcionario : funcionarios) {
-            total += funcionario.getSalario();
+            total += funcionario.calcularSalario();
         }
         return total;
     }

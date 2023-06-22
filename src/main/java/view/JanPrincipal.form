@@ -100,8 +100,15 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jTextFieldSalarioMax" min="-2" pref="77" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="jButtonBuscaSalarioEntre" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButtonBuscaSalarioEntre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jButtonDocEfetRel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButtonTecRel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButtonDocRel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButtonDocSubsRel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -155,18 +162,27 @@
                               <Component id="jButtonBuscaEntre" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonTecRel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldSalarioMin" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldSalarioMax" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonDocRel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonBuscaSalarioEntre" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jButtonBuscaSalarioEntre" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonDocEfetRel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonDocSubsRel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -385,6 +401,38 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaSalarioEntreActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonTecRel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio T&#xe9;cnicos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonTecRelActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonDocRel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio Docentes"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDocRelActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonDocEfetRel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio Docentes Efetivos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDocEfetRelActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonDocSubsRel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Relat&#xf3;rio Docentes Substitutos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDocSubsRelActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

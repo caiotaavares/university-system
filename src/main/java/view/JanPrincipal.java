@@ -85,6 +85,10 @@ public class JanPrincipal extends javax.swing.JFrame {
         jTextFieldSalarioMin = new javax.swing.JTextField();
         jTextFieldSalarioMax = new javax.swing.JTextField();
         jButtonBuscaSalarioEntre = new javax.swing.JButton();
+        jButtonTecRel = new javax.swing.JButton();
+        jButtonDocRel = new javax.swing.JButton();
+        jButtonDocEfetRel = new javax.swing.JButton();
+        jButtonDocSubsRel = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -282,6 +286,34 @@ public class JanPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButtonTecRel.setText("Relatório Técnicos");
+        jButtonTecRel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTecRelActionPerformed(evt);
+            }
+        });
+
+        jButtonDocRel.setText("Relatório Docentes");
+        jButtonDocRel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDocRelActionPerformed(evt);
+            }
+        });
+
+        jButtonDocEfetRel.setText("Relatório Docentes Efetivos");
+        jButtonDocEfetRel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDocEfetRelActionPerformed(evt);
+            }
+        });
+
+        jButtonDocSubsRel.setText("Relatório Docentes Substitutos");
+        jButtonDocSubsRel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDocSubsRelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -333,8 +365,14 @@ public class JanPrincipal extends javax.swing.JFrame {
                                         .addComponent(jTextFieldSalarioMin, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextFieldSalarioMax, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButtonBuscaSalarioEntre)
-                                    .addComponent(jLabel26))))
+                                    .addComponent(jLabel26)
+                                    .addComponent(jButtonBuscaSalarioEntre))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonDocEfetRel)
+                                    .addComponent(jButtonTecRel)
+                                    .addComponent(jButtonDocRel)
+                                    .addComponent(jButtonDocSubsRel))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -374,15 +412,22 @@ public class JanPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonBuscaEntre))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel26)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(jButtonTecRel))
+                        .addGap(9, 9, 9)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27)
                             .addComponent(jTextFieldSalarioMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldSalarioMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldSalarioMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonDocRel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonBuscaSalarioEntre)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonBuscaSalarioEntre)
+                            .addComponent(jButtonDocEfetRel))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDocSubsRel)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Departamento", jPanel2);
@@ -1040,6 +1085,30 @@ public class JanPrincipal extends javax.swing.JFrame {
         jTextAreaDep.setText(cbDepartamento.funcionariosSalarioFaixa(min, max));
     }//GEN-LAST:event_jButtonBuscaSalarioEntreActionPerformed
 
+    private void jButtonTecRelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTecRelActionPerformed
+        // TODO add your handling code here:
+        
+        jTextAreaDep.setText(cbDepartamento.tecnicoRelatorio());
+    }//GEN-LAST:event_jButtonTecRelActionPerformed
+
+    private void jButtonDocRelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDocRelActionPerformed
+        // TODO add your handling code here:
+        
+        jTextAreaDep.setText(cbDepartamento.docenteRelatorio());
+    }//GEN-LAST:event_jButtonDocRelActionPerformed
+
+    private void jButtonDocEfetRelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDocEfetRelActionPerformed
+        // TODO add your handling code here:
+        
+        jTextAreaDep.setText(cbDepartamento.docenteEfetivoRelatorio());
+    }//GEN-LAST:event_jButtonDocEfetRelActionPerformed
+
+    private void jButtonDocSubsRelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDocSubsRelActionPerformed
+        // TODO add your handling code here:
+        
+        jTextAreaDep.setText(cbDepartamento.docenteSubstitutoRelatorio());
+    }//GEN-LAST:event_jButtonDocSubsRelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1086,9 +1155,13 @@ public class JanPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCarrArquivo;
     private javax.swing.JButton jButtonCarrDepList;
     private javax.swing.JButton jButtonCarrTab;
+    private javax.swing.JButton jButtonDocEfetRel;
+    private javax.swing.JButton jButtonDocRel;
+    private javax.swing.JButton jButtonDocSubsRel;
     private javax.swing.JButton jButtonInfoGeral;
     private javax.swing.JButton jButtonMostrarFunc;
     private javax.swing.JButton jButtonResDep;
+    private javax.swing.JButton jButtonTecRel;
     private javax.swing.JComboBox<String> jComboBoxCadAreaEfet;
     private javax.swing.JComboBox<String> jComboBoxCadFuncaoTec;
     private javax.swing.JComboBox<String> jComboBoxCadHoraSubs;

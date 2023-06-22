@@ -17,14 +17,20 @@ public class Substituto extends Docente {
     }
     
     @Override
+    public boolean isEfetivo() {
+        return false;
+    }
+    
+    @Override
     public String toString() {
         return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\",%n  \"titulacao\": \"%s\",%n  \"cargaHoraria\": %d%n}",
-                             getCodigoFunc(), getNome(), getSalario(), getNivel(), getTitulacao(), getCargaHoraria());
+                             getCodigoFunc(), getNome(), calcularSalario(), getNivel(), getTitulacao(), getCargaHoraria());
     }
 
     @Override
     public double calcularSalario() {
-        return salario;
+        if ("S1".equals(salario)) return salario * 1.05;
+        return salario * 1.1;
     }
 
     public int getCargaHoraria() {

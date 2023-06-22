@@ -24,13 +24,16 @@ public class Tecnico extends Funcionario implements Serializable {
 
     @Override
     public double calcularSalario() {
-        return (salario * 1.1);
+        if ("T1".equals(nivel)) {
+            return salario * 1.1;
+        }
+        return salario * 1.2;
     }
     
     @Override
     public String toString() {
         return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\",%n  \"funcao\": \"%s\"%n}",
-                             getCodigoFunc(), getNome(), getSalario(), getNivel(), getFuncao());
+                             getCodigoFunc(), getNome(), calcularSalario(), getNivel(), getFuncao());
     }
 
     public String getFuncao() {

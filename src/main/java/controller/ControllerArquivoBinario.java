@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import model.Docente;
 import model.Funcionario;
+import model.Tecnico;
 
 public class ControllerArquivoBinario<Departamento extends model.Departamento> extends ControllerArquivo {    
     private List<Departamento> lista = new ArrayList<>();
@@ -78,7 +80,7 @@ public class ControllerArquivoBinario<Departamento extends model.Departamento> e
         List<Funcionario> funcionarios = departamento.getFuncionarios();
         if (funcionarios != null) {
             for (Funcionario funcionario : funcionarios) {
-                gastoTotal += funcionario.getSalario();
+                gastoTotal += funcionario.calcularSalario();
             }
         }
         return gastoTotal;
@@ -92,21 +94,108 @@ public class ControllerArquivoBinario<Departamento extends model.Departamento> e
     }
     
     public String funcionariosSalarioFaixa(double faixaInicial, double faixaFinal) {
-        StringBuilder sb = new StringBuilder();
-        for (Departamento departamento : lista) {
-            List<Funcionario> funcionarios = departamento.getFuncionarios();
-            for (Funcionario funcionario : funcionarios) {
-                double salario = funcionario.getSalario();
+        StringBuilder stBuilder = new StringBuilder();
+        
+        for (Departamento dp : lista) {
+            List<Funcionario> funcionarios = dp.getFuncionarios();
+            
+            for (Funcionario fc : funcionarios) {
+                
+                double salario = fc.calcularSalario();
                 if (salario >= faixaInicial && salario <= faixaFinal) {
-                    sb.append("Funcionário{")
-                      .append("nome='").append(funcionario.getNome()).append('\'')
-                      .append(", departamento='").append(departamento.getNome()).append('\'')
-                      .append(", salario=").append(salario)
-                      .append("}\n");
+                    stBuilder   .append("Funcionário{")
+                                .append("nome='").append(fc.getNome()).append('\'')
+                                .append(", departamento='").append(dp.getNome()).append('\'')
+                                .append(", salario=").append(salario)
+                                .append("}\n");
                 }
             }
         }
-        return sb.toString();
+        return stBuilder.toString();
+    }
+    
+    public String tecnicoRelatorio() {
+        StringBuilder stBuilder = new StringBuilder();
+        
+        for (Departamento dp : lista) {
+            List<Funcionario> funcionarios = dp.getFuncionarios();
+            
+            for (Funcionario fc : funcionarios) {
+                
+                if (fc instanceof Tecnico) {
+                stBuilder   .append("Funcionário Técnico{")
+                            .append("nome='").append(fc.getNome()).append('\'')
+                            .append(", departamento='").append(dp.getNome()).append('\'')
+                            .append(", salario=").append(fc.getSalario())
+                            .append("}\n");
+            }
+            }
+        }
+        
+        return stBuilder.toString();
+    }
+    
+    public String docenteRelatorio() {
+        StringBuilder stBuilder = new StringBuilder();
+        
+        for (Departamento dp : lista) {
+            List<Funcionario> funcionarios = dp.getFuncionarios();
+            
+            for (Funcionario fc : funcionarios) {
+                
+                if (fc instanceof Docente) {
+                stBuilder   .append("Funcionário Docente{")
+                            .append("nome='").append(fc.getNome()).append('\'')
+                            .append(", departamento='").append(dp.getNome()).append('\'')
+                            .append(", salario=").append(fc.getSalario())
+                            .append("}\n");
+                }
+            }
+        }
+        
+        return stBuilder.toString();    
+    }
+    
+    public String docenteEfetivoRelatorio() {
+        StringBuilder stBuilder = new StringBuilder();
+        
+        for (Departamento dp : lista) {
+            List<Funcionario> funcionarios = dp.getFuncionarios();
+            
+            for (Funcionario fc : funcionarios) {
+                
+                if (fc instanceof Docente && ((Docente) fc).isEfetivo()) {
+                stBuilder   .append("Funcionário Docente Efetivo{")
+                            .append("nome='").append(fc.getNome()).append('\'')
+                            .append(", departamento='").append(dp.getNome()).append('\'')
+                            .append(", salario=").append(fc.getSalario())
+                            .append("}\n");
+                }
+            }
+        }
+        
+        return stBuilder.toString();    
+    }
+    
+    public String docenteSubstitutoRelatorio() {
+        StringBuilder stBuilder = new StringBuilder();
+        
+        for (Departamento dp : lista) {
+            List<Funcionario> funcionarios = dp.getFuncionarios();
+            
+            for (Funcionario fc : funcionarios) {
+                
+                if (fc instanceof Docente && !((Docente) fc).isEfetivo()) {
+                stBuilder   .append("Funcionário Docente Substituto{")
+                            .append("nome='").append(fc.getNome()).append('\'')
+                            .append(", departamento='").append(dp.getNome()).append('\'')
+                            .append(", salario=").append(fc.getSalario())
+                            .append("}\n");
+                }
+            }
+        }
+        
+        return stBuilder.toString();    
     }
 
         

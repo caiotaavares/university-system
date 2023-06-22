@@ -21,13 +21,20 @@ public class Efetivo extends Docente implements Serializable {
 
     @Override
     public double calcularSalario() {
-        return salario;
+        if ("D1".equals(nivel)) return salario * 1.05;
+        if ("D2".equals(nivel)) return salario * 1.1;
+        return salario * 1.3;
+    }
+    
+    @Override
+    public boolean isEfetivo() {
+        return true;
     }
     
     @Override
     public String toString() {
         return String.format("{%n  \"codigoFunc\": %d,%n  \"nome\": \"%s\",%n  \"salario\": %.2f,%n  \"nivel\": \"%s\",%n  \"titulacao\": \"%s\",%n  \"area\": \"%s\"%n}",
-                             getCodigoFunc(), getNome(), getSalario(), getNivel(), getTitulacao(), getArea());
+                             getCodigoFunc(), getNome(), calcularSalario(), getNivel(), getTitulacao(), getArea());
     }
 
     public String getArea() {
