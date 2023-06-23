@@ -1,6 +1,7 @@
 model/DepartamentoTableModel.class
 view/JanPrincipal$16.class
 view/JanPrincipal$6.class
+view/JanPrincipal$26.class
 view/JanPrincipal$22.class
 model/Tecnico.class
 controller/ControllerDepartamento.class

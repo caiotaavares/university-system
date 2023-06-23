@@ -30,7 +30,7 @@ o gasto total com funcionário;
 - [X] 	Exibir Todos os Docentes Substitutos: emite um relatório geral com
 	todos os funcionários docente substitutos da universidade;
 	
-- [ ] 	Exibir Informações de um Departamento: exibe todas as informações
+- [X] 	Exibir Informações de um Departamento: exibe todas as informações
 	de um departamento selecionado pelo usuário, listando os funcionários e
 	gastos totais. Nesse caso, pode-se indicar o código do departamento ou
 	seleciona-lo em uma lista;

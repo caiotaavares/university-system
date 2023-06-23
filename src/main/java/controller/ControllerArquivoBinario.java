@@ -197,6 +197,29 @@ public class ControllerArquivoBinario<Departamento extends model.Departamento> e
         
         return stBuilder.toString();    
     }
+    
+        public String departamentoInformacoes(int idDep) {
+        StringBuilder stBuilder = new StringBuilder();
+        
+        for (Departamento dp : lista) {
+            
+            if (dp.getCodigo() == idDep) {
+                stBuilder.append("Departamento: ").append(dp.getNome()).append("\n");
+                stBuilder.append("Funcionarios: \n");
+                
+                List<Funcionario> fc = dp.getFuncionarios();
+                
+                for(Funcionario funcionario : fc) {
+                    stBuilder.append(" - ").append(funcionario.getNome()).append("\n");
+                }
+                
+                stBuilder.append("Gasto com funcionários: ").append(dp.getGastoTotalFuncionarios()).append("\n");
+                return stBuilder.toString();
+            }
+        }
+        
+        return "Erro: Departamento não encontrado!";
+    }
 
         
 //    public T consLista(T pessoa){
