@@ -38,5 +38,5 @@ o gasto total com funcionário;
 - [X] 	Buscar um Funcionários pelo Código: exibir dados de um funcionário
 	a partir de seu código;
 	
-- [ ] 	Buscar um Funcionários pelo Nome: exibir dados de um funcionário a
+- [X] 	Buscar um Funcionários pelo Nome: exibir dados de um funcionário a
 	partir de seu nome.
