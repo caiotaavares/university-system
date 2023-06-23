@@ -35,7 +35,7 @@ o gasto total com funcionário;
 	gastos totais. Nesse caso, pode-se indicar o código do departamento ou
 	seleciona-lo em uma lista;
 	
-- [ ] 	Buscar um Funcionários pelo Código: exibir dados de um funcionário
+- [X] 	Buscar um Funcionários pelo Código: exibir dados de um funcionário
 	a partir de seu código;
 	
 - [ ] 	Buscar um Funcionários pelo Nome: exibir dados de um funcionário a

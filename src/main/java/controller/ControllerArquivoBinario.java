@@ -198,7 +198,7 @@ public class ControllerArquivoBinario<Departamento extends model.Departamento> e
         return stBuilder.toString();    
     }
     
-        public String departamentoInformacoes(int idDep) {
+    public String departamentoInformacoes(int idDep) {
         StringBuilder stBuilder = new StringBuilder();
         
         for (Departamento dp : lista) {
@@ -220,44 +220,50 @@ public class ControllerArquivoBinario<Departamento extends model.Departamento> e
         
         return "Erro: Departamento não encontrado!";
     }
-
+    
+    public String funcionarioInformacoes(int idFunc) {
+        StringBuilder stBuilder = new StringBuilder();
         
-//    public T consLista(T pessoa){
-//        return lista.stream().filter(x -> x.getIdPessoa().equals(pessoa.getIdPessoa())).findFirst().orElse(null);
-//    }
+        for (Departamento dp : lista) {
+            List<Funcionario> funcionarios = dp.getFuncionarios();
+            
+            for (Funcionario fc : funcionarios) {
+                
+                if (fc.getCodigoFunc().equals(idFunc)) {
+                stBuilder   .append("Funcionário{")
+                            .append("nome='").append(fc.getNome()).append('\'')
+                            .append(", departamento='").append(dp.getNome()).append('\'')
+                            .append(", código=").append(fc.getCodigoFunc())
+                            .append(", salário=").append(fc.calcularSalario())
+                            .append("}\n");
+                    return stBuilder.toString();
+                }
+            }
+        }
+        
+        return "Erro: Funcionario não encontrado!";
+    }
     
-    
-//    public boolean deletePessoa(T pessoa){
-//       
-//        if(pessoa == null){
-//            return false;
-//        }
-//        final T aux = pessoa;
-//        pessoa = consLista(pessoa);
-//        if(pessoa == null){
-//            return false;
-//        }
-//        lista.remove(pessoa);
-//        escrever(false);
-//        return true;
-//    }
-//    
-//    public boolean updatePessoa(T pessoa){
-//        AtomicInteger verifica = new AtomicInteger(0);//Serve para thread Safe...
-//
-//        lista = lista.stream().
-//                map(x -> {
-//                    if (x.getIdPessoa().equals(pessoa.getIdPessoa())) {
-//                        verifica.set(1);
-//                        return pessoa;
-//                    }
-//                    return x;
-//                }).collect(Collectors.toList());
-//
-//        if (verifica.get() == 1) {
-//            escrever(false);
-//        }
-//
-//        return verifica.get() == 1;
-//    }
+        public String funcionarioInformacoesNome(String nome) {
+        StringBuilder stBuilder = new StringBuilder();
+        
+        for (Departamento dp : lista) {
+            List<Funcionario> funcionarios = dp.getFuncionarios();
+            
+            for (Funcionario fc : funcionarios) {
+                
+                if (fc.getNome().equals(nome)) {
+                stBuilder   .append("Funcionário{")
+                            .append("nome='").append(fc.getNome()).append('\'')
+                            .append(", departamento='").append(dp.getNome()).append('\'')
+                            .append(", código=").append(fc.getCodigoFunc())
+                            .append(", salário=").append(fc.calcularSalario())
+                            .append("}\n");
+                }
+            }
+        }
+        return stBuilder.toString();
+//        return "Erro: Funcionario não encontrado!";
+    }
+
 }

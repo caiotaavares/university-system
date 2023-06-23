@@ -92,6 +92,13 @@ public class JanPrincipal extends javax.swing.JFrame {
         jButtonDepInfo = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        jButtonFuncInfo = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        jTextFieldFuncInfo = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jTextFieldFuncInfoNome = new javax.swing.JTextField();
+        jButtonFuncInfoNome = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -328,6 +335,26 @@ public class JanPrincipal extends javax.swing.JFrame {
 
         jLabel29.setText("Relatórios");
 
+        jButtonFuncInfo.setText("Buscar");
+        jButtonFuncInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFuncInfoActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setText("código");
+
+        jLabel31.setText("Informações Funcionário");
+
+        jLabel32.setText("Nome");
+
+        jButtonFuncInfoNome.setText("Buscar");
+        jButtonFuncInfoNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFuncInfoNomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -373,16 +400,13 @@ public class JanPrincipal extends javax.swing.JFrame {
                                     .addComponent(jButtonBuscaSalarioEntre))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonTecRel)
+                                    .addComponent(jButtonDocRel)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jButtonDocSubsRel)
+                                    .addComponent(jButtonDocEfetRel))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButtonDocSubsRel)
-                                            .addComponent(jButtonDocEfetRel))
-                                        .addGap(175, 175, 175))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButtonTecRel)
-                                            .addComponent(jButtonDocRel)
-                                            .addComponent(jLabel29))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -391,7 +415,28 @@ public class JanPrincipal extends javax.swing.JFrame {
                                                 .addComponent(jTextFieldDepInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jLabel28)
                                             .addComponent(jButtonDepInfo))
-                                        .addGap(85, 85, 85))))
+                                        .addGap(85, 85, 85))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(49, 49, 49)
+                                                .addComponent(jLabel31))
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(jLabel30)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jTextFieldFuncInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(jButtonFuncInfo))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jButtonFuncInfoNome)
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(jLabel32)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jTextFieldFuncInfoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButtonInfoGeral)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -449,7 +494,11 @@ public class JanPrincipal extends javax.swing.JFrame {
                                 .addGap(45, 45, 45)
                                 .addComponent(jButtonTecRel)
                                 .addGap(9, 9, 9)
-                                .addComponent(jButtonDocRel))))
+                                .addComponent(jButtonDocRel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDocEfetRel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDocSubsRel))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel28)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -457,11 +506,19 @@ public class JanPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jTextFieldDepInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonDepInfo)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonDocEfetRel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonDocSubsRel)
+                        .addComponent(jButtonDepInfo)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel31)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel30)
+                            .addComponent(jTextFieldFuncInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel32)
+                            .addComponent(jTextFieldFuncInfoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonFuncInfo)
+                            .addComponent(jButtonFuncInfoNome))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -1156,6 +1213,18 @@ public class JanPrincipal extends javax.swing.JFrame {
         jTextAreaDep.setText(cbDepartamento.departamentoInformacoes(codigo));
     }//GEN-LAST:event_jButtonDepInfoActionPerformed
 
+    private void jButtonFuncInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncInfoActionPerformed
+        // TODO add your handling code here:
+        int codigo = Integer.parseInt(jTextFieldFuncInfo.getText());
+        jTextAreaDep.setText(cbDepartamento.funcionarioInformacoes(codigo));
+    }//GEN-LAST:event_jButtonFuncInfoActionPerformed
+
+    private void jButtonFuncInfoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncInfoNomeActionPerformed
+        // TODO add your handling code here:
+        String nome = jTextFieldFuncInfoNome.getText();
+        jTextAreaDep.setText(cbDepartamento.funcionarioInformacoesNome(nome));
+    }//GEN-LAST:event_jButtonFuncInfoNomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1206,6 +1275,8 @@ public class JanPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDocEfetRel;
     private javax.swing.JButton jButtonDocRel;
     private javax.swing.JButton jButtonDocSubsRel;
+    private javax.swing.JButton jButtonFuncInfo;
+    private javax.swing.JButton jButtonFuncInfoNome;
     private javax.swing.JButton jButtonInfoGeral;
     private javax.swing.JButton jButtonMostrarFunc;
     private javax.swing.JButton jButtonResDep;
@@ -1242,6 +1313,9 @@ public class JanPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1269,6 +1343,8 @@ public class JanPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCadSalarioSubs;
     private javax.swing.JTextField jTextFieldCadSalarioTec;
     private javax.swing.JTextField jTextFieldDepInfo;
+    private javax.swing.JTextField jTextFieldFuncInfo;
+    private javax.swing.JTextField jTextFieldFuncInfoNome;
     private javax.swing.JTextField jTextFieldGastoMax;
     private javax.swing.JTextField jTextFieldGastoMin;
     private javax.swing.JTextField jTextFieldSalarioMax;

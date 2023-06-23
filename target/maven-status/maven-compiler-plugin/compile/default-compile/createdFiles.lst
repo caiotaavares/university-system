@@ -15,6 +15,7 @@ view/JanPrincipal.class
 view/JanPrincipal$17.class
 model/Funcionario.class
 model/Docente.class
+view/JanPrincipal$28.class
 view/JanPrincipal$8.class
 model/Efetivo.class
 view/JanPrincipal$10.class
@@ -31,6 +32,7 @@ view/JanPrincipal$15.class
 model/Departamento.class
 view/JanPrincipal$23.class
 model/Substituto.class
+view/JanPrincipal$27.class
 view/JanPrincipal$9.class
 view/JanPrincipal$12.class
 view/JanPrincipal$18.class
