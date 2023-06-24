@@ -1,5 +1,8 @@
 # university-system
-
+##### Nome: Caio Gabriel Santana Tavares
+##### Caminho do executável: target/projeto-universidade-1.0.jar
+###### Obs: db.txt precisar estar no mesmo diretório de projeto-universidade-1.0.jar
+----
 Geral: apresenta todos os departamentos, seus respectivos funcionários e
 o gasto total com funcionário;
 
