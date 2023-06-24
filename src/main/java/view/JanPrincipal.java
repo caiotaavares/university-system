@@ -65,7 +65,6 @@ public class JanPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButtonCarrArquivo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButtonCarrTab = new javax.swing.JButton();
         jButtonInfoGeral = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -165,13 +164,6 @@ public class JanPrincipal extends javax.swing.JFrame {
         });
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
-
-        jButtonCarrTab.setText("Mostrar Departamentos");
-        jButtonCarrTab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCarrTabActionPerformed(evt);
-            }
-        });
 
         jButtonInfoGeral.setText("Geral");
         jButtonInfoGeral.addActionListener(new java.awt.event.ActionListener() {
@@ -368,9 +360,7 @@ public class JanPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButtonCarrArquivo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonCarrTab)
-                        .addGap(412, 412, 412)
+                        .addGap(614, 614, 614)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -452,9 +442,7 @@ public class JanPrincipal extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addComponent(jLabel1)
                         .addGap(1, 1, 1)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonCarrArquivo)
-                            .addComponent(jButtonCarrTab))
+                        .addComponent(jButtonCarrArquivo)
                         .addGap(24, 24, 24)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -956,15 +944,6 @@ public class JanPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonCadastrarDepActionPerformed
 
-    private void jButtonCarrTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCarrTabActionPerformed
-        // TODO add your handling code here:
-        if (!(cbDepartamento.getLista() == null) && cbDepartamento.getArquivo() != null) {
-            mensagemTela(true, cbDepartamento.getLista().toString());
-        } else {
-            mensagemTela(false, "Arquivo não constatado.");
-        }
-    }//GEN-LAST:event_jButtonCarrTabActionPerformed
-
     private void jButtonCarrDepListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCarrDepListActionPerformed
         // Listar departamentos
         List<Departamento> dep = cbDepartamento.getLista();
@@ -1270,7 +1249,6 @@ public class JanPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadTec;
     private javax.swing.JButton jButtonCarrArquivo;
     private javax.swing.JButton jButtonCarrDepList;
-    private javax.swing.JButton jButtonCarrTab;
     private javax.swing.JButton jButtonDepInfo;
     private javax.swing.JButton jButtonDocEfetRel;
     private javax.swing.JButton jButtonDocRel;

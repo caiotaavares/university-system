@@ -15,8 +15,9 @@ public abstract class ControllerArquivo {
     }
 
     public void setArquivo(String TextoBotao) {
-        chooser = new JFileChooser();
-        chooser.setSelectedFile(new File("db.txt"));
-        arquivo = chooser.getSelectedFile();
+        String jarPath = ControllerArquivo.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        String directoryPath = new File(jarPath).getParent();
+        File dbFile = new File(directoryPath, "db.txt");
+        arquivo = dbFile;
     }
 }

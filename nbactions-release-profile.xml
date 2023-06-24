@@ -15,7 +15,6 @@
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>view.JanPrincipal</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <exec.workingdir>/home/caiotavares/NetBeansProjects/projeto-universidade</exec.workingdir>
             </properties>
         </action>
         <action>
@@ -34,7 +33,6 @@
                 <exec.mainClass>view.JanPrincipal</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
-                <exec.workingdir>/home/caiotavares/NetBeansProjects/projeto-universidade</exec.workingdir>
             </properties>
         </action>
         <action>
@@ -52,7 +50,6 @@
                 <exec.mainClass>view.JanPrincipal</exec.mainClass>
                 <exec.executable>java</exec.executable>
                 <exec.appArgs></exec.appArgs>
-                <exec.workingdir>/home/caiotavares/NetBeansProjects/projeto-universidade</exec.workingdir>
             </properties>
         </action>
     </actions>

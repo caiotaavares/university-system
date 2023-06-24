@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -30,6 +31,7 @@ public class ControllerArquivoBinario<Departamento extends model.Departamento> e
 
     @Override
     public boolean ler() {
+        setArquivo("db.txt");
         if (getArquivo() == null) {
             return false;
         }
@@ -49,6 +51,7 @@ public class ControllerArquivoBinario<Departamento extends model.Departamento> e
 
     @Override
     public boolean escrever(boolean append) {
+        setArquivo("db.txt");
         if (arquivo != null && arquivo.isFile()) {
             try {
                 escritor = new ObjectOutputStream(new FileOutputStream(arquivo, append));
@@ -63,6 +66,43 @@ public class ControllerArquivoBinario<Departamento extends model.Departamento> e
             return false;
         }
     }
+
+    
+//    @Override
+//    public boolean ler() {
+//        if (getArquivo() == null) {
+//            return false;
+//        }
+//        try {
+//            if (getArquivo().length() == 0L && getArquivo().isFile()) {
+//                lista = new ArrayList<>();
+//                return true;
+//            }
+//            leitor = new ObjectInputStream(new FileInputStream(getArquivo()));
+//            lista = (ArrayList<Departamento>) leitor.readObject();
+//            leitor.close();
+//            return true;
+//        } catch (ClassNotFoundException | IOException erro) {
+//            return false;
+//        }
+//    }
+//
+//    @Override
+//    public boolean escrever(boolean append) {
+//        if (arquivo != null && arquivo.isFile()) {
+//            try {
+//                escritor = new ObjectOutputStream(new FileOutputStream(arquivo, append));
+//                escritor.writeObject(lista);
+//                escritor.close();
+//                return true;
+//            } catch (IOException erro) {
+//                System.err.println(erro.getMessage() + "Erro ao escrever arquivo binário.");
+//                return false;
+//            }
+//        } else {
+//            return false;
+//        }
+//    }
     
     public String resumoDepartamentos() {
         StringBuilder sb = new StringBuilder();
